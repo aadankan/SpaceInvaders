@@ -18,7 +18,7 @@ s.listen(2)
 print("Waiting for connection, Server Started")
 
 
-players = [Player(300, 480, "space.png"), Player(400, 480, "space.png")]
+players = [Player(300, 480, 50, 50, (255, 0, 0)), Player(400, 480, 50, 50, (0, 0, 255))]
 
 
 def thread_client(conn, player):

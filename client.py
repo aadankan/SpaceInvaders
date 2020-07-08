@@ -5,10 +5,10 @@ width = 900
 height = 600
 win = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Client")
-
+background = pygame.image.load("background.png")
 
 def redrawWindow(win, player, player2):
-    win.fill((255, 255, 255))
+    win.blit(background, (0, 0))
     player.draw(win)
     player2.draw(win)
     pygame.display.update()
