@@ -11,6 +11,7 @@ screen = pygame.display.set_mode((900, 600))
 background = pygame.image.load('background.png')
 
 mixer.music.load("background.wav")
+mixer.music.set_volume(0.1)
 mixer.music.play(-1)
 
 pygame.display.set_caption("Space Invader")
@@ -55,7 +56,7 @@ over_font = pygame.font.Font('freesansbold.ttf', 64)
 
 
 def show_score(x, y):
-    score = font.render("Score : " + str(score_value), True, (255, 255, 255))
+    score = font.render("Score: " + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
 
 
@@ -101,8 +102,9 @@ while running:
             if event.key == pygame.K_RIGHT:
                 playerX_change = 5
             if event.key == pygame.K_SPACE:
-                if bullet_state is "ready":
+                if bullet_state == "ready":
                     bulletSound = mixer.Sound("laser.wav")
+                    bulletSound.set_volume(0.2)
                     bulletSound.play()
                     # Get the current x cordinate of the spaceship
                     bulletX = playerX
@@ -139,6 +141,7 @@ while running:
         collision = isCollision(enemyX[i], enemyY[i], bulletX, bulletY)
         if collision:
             explosionSound = mixer.Sound("explosion.wav")
+            explosionSound.set_volume(0.1)
             explosionSound.play()
             bulletY = 480
             bullet_state = "ready"
@@ -152,7 +155,7 @@ while running:
         bulletY = 480
         bullet_state = "ready"
 
-    if bullet_state is "fire":
+    if bullet_state == "fire":
         fire_bullet(bulletX, bulletY)
         bulletY -= bulletY_change
 

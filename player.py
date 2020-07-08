@@ -1,6 +1,12 @@
 import pygame
+from pygame import mixer
 
+pygame.init()
 img = pygame.image.load('space.png')
+mixer.music.load("background.wav")
+mixer.music.set_volume(0.1)
+mixer.music.play(-1)
+
 class Player:
     def __init__(self, x, y, width, height, color):
         self.x = x

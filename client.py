@@ -1,11 +1,13 @@
 import pygame
 from network import Network
 
+
 width = 900
 height = 600
 win = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Client")
 background = pygame.image.load("background.png")
+
 
 def redrawWindow(win, player, player2):
     win.blit(background, (0, 0))
