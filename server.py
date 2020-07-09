@@ -1,7 +1,9 @@
 import socket
 from _thread import *
 from player import Player
+from enemy import Enemy
 import pickle
+import random
 
 server = ""
 port = 5555
@@ -18,7 +20,8 @@ s.listen(2)
 print("Waiting for connection, Server Started")
 
 
-players = [Player(300, 480, 50, 50, (255, 0, 0)), Player(400, 480, 50, 50, (0, 0, 255))]
+players = [Player(300, 480), Player(400, 480)]
+enemies = [Enemy(random.randint(0, 736), random.randint(50, 150))]
 
 
 def thread_client(conn, player):
